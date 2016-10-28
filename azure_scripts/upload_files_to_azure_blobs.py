@@ -7,7 +7,7 @@ def main():
     Config = ConfigParser.ConfigParser()
     Config.read("settings.ini")
 
-    # initialize constant variables
+    # get constant variables from config file
     STORAGE_NAME = Config.get('azure-blob', 'STORAGE_NAME')
     STORAGE_KEY = Config.get('azure-blob', 'STORAGE_KEY')
     TARGET_FOLDER_NAME = Config.get('azure-blob', 'TARGET_FOLDER_NAME')

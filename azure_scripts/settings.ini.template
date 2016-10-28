@@ -6,3 +6,9 @@ TARGET_FOLDER_NAME = ''
 LOCAL_FILE_PATH = ''
 
 [azure-sql]
+SERVER_NAME = ''
+PORT = ''
+USER_NAME = ''
+PASSWORD = ''
+DB_NAME = ''
+
