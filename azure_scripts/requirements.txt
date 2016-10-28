@@ -1,2 +1,2 @@
 azure-storage>=0.33.0
-pyodbc>=3.0.10
+pymssql>=2.1.3
