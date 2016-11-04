@@ -13,6 +13,7 @@ import sys
 import getopt
 from spark_python_dtree_converter import SparkPythonModelConverter
 
+
 def explain_usage():
     print ''
     return
@@ -40,6 +41,10 @@ def main(argv):
             # output the conversion as a python class (.py class), not pickled object
             to_pickle = False
 
+    # test values
+    #spark_model_file = '/Users/jacopo/Documents/spark/decision_tree.txt'
+    #output_file = '/Users/jacopo/Documents/spark/decision_tree.py'
+    #to_pickle = False
     # make the conversion with the provided options
     converter = SparkPythonModelConverter()
     converter.convert(spark_model_file, output_file, to_pickle)
