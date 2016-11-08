@@ -75,6 +75,6 @@ class SparkPythonModelConverter:
 
     def get_class_and_function_header(self):
         class_header = 'class DecisionTree:\n\n'
-        function_header = '    def classify(features):\n'
+        function_header = '    def classify(self, features):\n'
 
         return class_header + function_header
