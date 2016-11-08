@@ -1,3 +1,6 @@
+# see http://stackoverflow.com/questions/701802/how-do-i-execute-a-string-containing-python-code-in-python
+# for input on reflection in python
+import pickle
 
 
 class SparkPythonModelConverter:
@@ -8,7 +11,13 @@ class SparkPythonModelConverter:
         python_class_code = self.translate_tree(spark_model_file, self.BASE_INDENTATION)
         # if needs to be pickled, instantiate the class and pickle it
         if to_pickle:
-            return
+            # execute class code
+            exec python_class_code
+            # TODO: look at compile method
+            # to help pickling/unpikcling assign a global name
+            globals()['DecisionTree'] = DecisionTree
+            decision_tree_classifier = DecisionTree()
+            pickle.dump(decision_tree_classifier, open(output_file, "wb"))
         # otherwise, save the file as a .py file
         else:
             self.dump_python_class(output_file, python_class_code)
@@ -74,7 +83,7 @@ class SparkPythonModelConverter:
         return self.get_class_and_function_header() + ''.join(final_code)
 
     def get_class_and_function_header(self):
-        class_header = 'class DecisionTree:\n\n'
+        class_header = 'class DecisionTree():\n\n'
         function_header = '    def classify(self, features):\n'
 
         return class_header + function_header

@@ -1,6 +1,3 @@
-# see http://stackoverflow.com/questions/701802/how-do-i-execute-a-string-containing-python-code-in-python
-# for input on reflection in python
-
 """
     The command-line script convert the content of a txt file to a pickled python class
     that can be used for real-time classification.
@@ -14,6 +11,7 @@ import getopt
 from spark_python_dtree_converter import SparkPythonModelConverter
 
 
+# TODO: complete the explanation function
 def explain_usage():
     print ''
     return

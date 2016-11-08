@@ -90,5 +90,7 @@ ENV/
 
 *.ini
 
+# file created by/for unit tests purposes
 decision_tree.txt
 decision_tree.py
+decision_tree.p
